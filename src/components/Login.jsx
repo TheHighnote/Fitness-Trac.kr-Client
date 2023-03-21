@@ -6,6 +6,7 @@ function Login({ loggedIn, setLoggedIn }) {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState("");
+  const navigate = useNavigate();
 
   const setCurrentUser = (user) => {
     localStorage.setItem("currentUser", JSON.stringify(user));
@@ -20,6 +21,7 @@ function Login({ loggedIn, setLoggedIn }) {
       localStorage.setItem("token", result.token);
       setLoggedIn(true);
       setCurrentUser(userName);
+      navigate("/");
     } else {
       console.log(result.error);
     }
@@ -52,6 +54,9 @@ function Login({ loggedIn, setLoggedIn }) {
             Submit
           </button>
           <br></br>
+          <Link to="/register" className="registerLink">
+            Dont have an account? Register here!
+          </Link>
         </form>
       </div>
     </div>
