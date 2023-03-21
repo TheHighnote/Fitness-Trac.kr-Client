@@ -9,8 +9,8 @@ const Navbar = () => {
       </Link>
       <input id="searchBar" type="text" placeholder="Search Here" />
       <div id="navbarButtons">
-        <button>Register</button>
-        <button>Log in</button>
+        <Link to="/register"><button>Register</button></Link>
+        <Link to="/login"><button>Log in</button></Link>
         <button>Log Out</button>
       </div>
     </div>

@@ -26,7 +26,6 @@ const Main = () => {
       <div id="main">
         <BrowserRouter>
           <Navbar />
-          <Dashboard />
           <Routes>
             <Route
               path="/"

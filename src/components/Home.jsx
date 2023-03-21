@@ -1,10 +1,12 @@
 import React from "react";
+import Dashboard from "./Dashboard";
 
 const Home = ({ routines, setRoutines }) => {
   console.log(routines, "Routines in RoutineList");
 
   return (
-    <div id="allRoutines">
+    <div id="home-page"> 
+      <div id="allRoutines">
       {routines.length ? (
         routines.map((routine) => {
           return (
@@ -15,10 +17,12 @@ const Home = ({ routines, setRoutines }) => {
             </div>
           );
         })
-      ) : (
-        <div className="loader"></div>
-      )}
+        ) : (
+          <div className="loader"></div>
+          )}
     </div>
+          <Dashboard />
+          </div>
   );
 };
 
