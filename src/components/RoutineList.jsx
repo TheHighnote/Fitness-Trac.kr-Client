@@ -7,7 +7,7 @@ const RoutineList = ({routines, setRoutines}) => {
     <div id="allRoutines">
         {routines.length ? routines.map((routine)=> {
             return(
-                <div key = {routine.id}>       
+                <div id="routine-view" key = {routine.id}>       
                     <h2>{routine.name}</h2>
                     <li>{routine.goal}</li>
                     <li>{routine.creatorId.name}</li>
