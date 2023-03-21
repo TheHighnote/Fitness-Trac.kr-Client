@@ -50,6 +50,29 @@ export const getAllActivities = async () => {
       console.error(error);
     }
   };
+
+  export const createActivity = async (name, description) => {
+    try {
+      const response = await fetch(`${URL}/activities`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          description: description
+        }) 
+      });
+  
+      const result = await response.json();
+  
+      console.log(result);
+      return result
+    } catch (err) {
+      console.error(err);
+    }
+  }
+    
 export const loginUser = async (username, password) => {
   try {
     console.log(`${URL}/users/login`);
