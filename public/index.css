@@ -60,10 +60,11 @@ body {
     color: white;
     margin: 15px;
     border: solid 2px black;
-    border-radius: 20px;
+    border-radius: 100px;
     box-shadow: 5px 5px 5px black;
     padding:10px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 
