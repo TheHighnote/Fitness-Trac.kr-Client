@@ -8,8 +8,8 @@ export const getAllPublicRoutines = async () => {
             },
         });
         const result = await response.json();
-        const routineArr = result.routines;
-        return routineArr;    
+        console.log(result, "API routines result")
+        return result  
     } catch (error) {
         console.error(error)
     }
