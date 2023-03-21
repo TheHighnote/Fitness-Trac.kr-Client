@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, RoutineList, Login, Register, Home } from "./";
+import { Navbar, RoutineList, Login, Register, Home, Dashboard } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAllPublicRoutines } from "../API-Adapter";
 
@@ -7,6 +7,7 @@ const Main = () => {
   const [routines, setRoutines] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [users, setUsers] = useState([]);
 
   const retrieveRoutines = async () => {
     const allRoutines = await getAllPublicRoutines();
@@ -25,6 +26,7 @@ const Main = () => {
       <div id="main">
         <BrowserRouter>
           <Navbar />
+          <Dashboard />
           <Routes>
             <Route
               path="/"

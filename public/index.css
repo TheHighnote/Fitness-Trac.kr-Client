@@ -1,3 +1,6 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
 body {
   margin: 0;
   background-color: rgb(44, 44, 44);
@@ -19,10 +22,10 @@ body {
 
 .loader {
   border: 6px solid #f3f3f3;
-  border-top: 6px solid white;
-  border-right: 6px solid lightblue;
-  border-left: 6px solid lightblue;
-  border-bottom: 6px solid white;
+  border-top: 6px solid rgb(44, 44, 44);
+  border-right: 6px solid aqua;
+  border-left: 6px solid aqua;
+  border-bottom: 6px solid rgb(44, 44, 44);
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -49,6 +52,8 @@ body {
   border: none;
   text-transform:uppercase;
   height: 80px;
+  cursor: pointer;
+
 }
 #navbarButtons button:hover{
   color:aqua;
@@ -72,21 +77,40 @@ body {
   background-color: rgb(35, 35, 35);
   border: 1px solid rgb(29, 29, 29);
   text-transform: uppercase;
+  cursor: pointer;
+
 }
 #searchBar:active{
   border: none;
 }
-
-#routine-view{
-    background-color: lightblue;
-    color: white;
-    margin: 15px;
-    border: solid 2px black;
-    border-radius: 100px;
-    box-shadow: 5px 5px 5px black;
-    padding:10px;
-    margin-bottom: 20px;
-    text-align: center;
+@media screen and (max-width: 865px) {
+  #searchBar {
+    display: none;
+  }
 }
 
+#routine-view{
+    background-color: rgb(44, 44, 44);
+    color:rgb(111, 111, 111);
+    margin: 5px;
+    /* border: solid 2px black; */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(21, 21, 21);
+    padding:10px;
+    width: 70%;
+    margin-bottom: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+#routine-view:active{
+  box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
+  color:aqua;
+
+}
+#DashWrapper{
+margin-left: 25rem;
+  border: 2px solid
+  red;
+  width: 45%;
+}
 
