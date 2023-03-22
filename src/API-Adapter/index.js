@@ -79,7 +79,7 @@ export const getAllActivities = async () => {
       },
     });
     const result = await response.json();
-    console.log(result, "result")
+    console.log(result, "result");
 
     return result;
   } catch (error) {
@@ -93,6 +93,7 @@ export const createActivity = async (name, description) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         name: name,

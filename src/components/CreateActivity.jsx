@@ -4,20 +4,26 @@ import { createActivity } from "../API-Adapter";
 
 const CreateActivity = (props) => {
   const [newName, setNewName] = useState("");
-  const [description, setDescription] = useState("");
+  const [newDescription, setNewDescription] = useState("");
   const navigate = useNavigate();
 
   const activities = props.activities;
   const setActivities = props.setActivities;
+  const loggedIn = props.loggedIn;
+  const currentUser = localStorage.getItem("currentUser");
 
   const handleClick = async (event) => {
-    event.preventDefault();
-    const result = await createActivity(newName, description);
-    const activitiesCopy = [...activities];
-    console.log(result, "createActivities");
-    activitiesCopy.push(result);
-    setActivities(activitiesCopy);
-    navigate("/activitylist");
+    if (loggedIn && currentUser) {
+      event.preventDefault();
+      const result = await createActivity(newName, newDescription);
+      const activitiesCopy = [...activities];
+      console.log(result, "createActivities");
+      activitiesCopy.push(result);
+      setActivities(activitiesCopy);
+      navigate("/activitylist");
+    } else {
+      alert("NEED TO BE LOGGED IN");
+    }
   };
 
   return (
@@ -47,10 +53,10 @@ const CreateActivity = (props) => {
                 className="newPostInput"
                 name="Description"
                 type="text"
-                value={description}
+                value={newDescription}
                 onChange={(event) => {
                   console.log(event.target.value);
-                  setDescription(event.target.value);
+                  setNewDescription(event.target.value);
                 }}
               />
             </label>
