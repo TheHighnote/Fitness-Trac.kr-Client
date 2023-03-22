@@ -49,11 +49,12 @@ const Main = () => {
               path="/"
               element={
                 <Home
-                  routines={routines}
-                  currentUser={currentUser}
-                  loggedIn={loggedIn}
-                  users={users}
-                  setUsers={setUsers}
+                routines={routines}
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                loggedIn={loggedIn}
+                users={users}
+                setUsers={setUsers}
                 />
               }
             />
@@ -83,7 +84,7 @@ const Main = () => {
                 />
               }
             />
-            <Route
+            {/* <Route
               path="/dashboard"
               element={
                 <Dashboard
@@ -94,7 +95,7 @@ const Main = () => {
                   users={users}
                   setUsers={setUsers}
                 />
-              }
+              } */}
             />
             <Route
               path="/searchbar"

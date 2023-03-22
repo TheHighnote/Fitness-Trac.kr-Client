@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Dashboard, DashButtons } from "./";
 
-const Home = ({ routines, setRoutines }) => {
+const Home = ({
+  routines,
+  setRoutines,
+  currentUser,
+  setCurrentUser,
+  loggedIn,
+  users,
+  setUsers,
+}) => {
   return (
     <div id="home-page">
       <div id="allRoutines">
@@ -19,7 +27,14 @@ const Home = ({ routines, setRoutines }) => {
           <div className="loader"></div>
         )}
       </div>
-      <Dashboard />
+      <Dashboard
+        routines={routines}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        loggedIn={loggedIn}
+        users={users}
+        setUsers={setUsers}
+      />
       <DashButtons />
     </div>
   );

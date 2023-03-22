@@ -269,7 +269,7 @@ body {
   height: 400px;
   margin-right: 20px;
   margin-left: 20px;
-
+  overflow: auto;
 }
 #newRoutineFormBox{
   border: 1px solid gray;
@@ -277,4 +277,5 @@ body {
   justify-content: center;
   width: max-content;
   padding: 2rem;
+
 }
