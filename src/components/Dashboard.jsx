@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchMe } from "../API-Adapter";
 import DashButtons from "./DashButtons";
 
-const Dashboard = (props) => {
+const Dashboard = ({ routines, setRoutines }) => {
   const [users, setUsers] = useState({});
 
   async function getMe() {
@@ -18,8 +18,7 @@ const Dashboard = (props) => {
   useEffect(() => {
     getMe();
   }, []);
-
-  console.log(users, "12345678909876543234567876");
+  console.log(routines, "ASDFGHJKLKJHGFDSA");
   return (
     <div id="DashWrapper">
       <div id="Dashboard">
@@ -27,20 +26,23 @@ const Dashboard = (props) => {
           <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
           <h1>MY DASHBOARD</h1>
           <h3>@{users.username}</h3>
-          <ul>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            auctor nec lacus eu venenatis. Sed pretium sed felis eget laoreet.
-            Aenean hendrerit posuere molestie. Class aptent taciti sociosqu ad
-            litora torquent per conubia nostra, per inceptos himenaeos. Quisque
-            pulvinar ultrices facilisis. Cras sollicitudin odio non erat
-            bibendum, eget bibendum elit aliquam. Donec blandit, massa eget
-            iaculis iaculis, tellus odio luctus ex, at interdum quam nunc ut
-            turpis. Aenean laoreet pharetra pulvinar. Duis ac velit tempor,
-            iaculis purus ut, commodo purus. Duis dapibus ac justo in hendrerit.
-            Proin volutpat, ipsum ut efficitur sollicitudin, eros ipsum
-            malesuada neque, nec fringilla arcu velit ut arcu. Morbi
-            sollicitudin, nulla sed bibendu
-          </ul>
+          <div id="dashBoardFeed">
+            <div id="allRoutines">
+              {routines.length ? (
+                routines.map((routine) => {
+                  return (
+                    <div id="routine-view" key={routine.id}>
+                      <h2>{routine.name}</h2>
+                      <ul>{routine.goal}</ul>
+                      <ul>{routine.creatorId}</ul>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="loader"></div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

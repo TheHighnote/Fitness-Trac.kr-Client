@@ -7,3 +7,4 @@ export { default as Home } from "./Home";
 export { default as Dashboard } from "./Dashboard";
 export { default as SearchBar } from "./SearchBar";
 export { default as DashButtons } from "./DashButtons";
+export { default as CreateRoutine } from "./CreateRoutine";

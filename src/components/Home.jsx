@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Dashboard, DashButtons } from "./";
 
 const Home = ({ routines, setRoutines }) => {
-  console.log(routines, "Routines in RoutineList");
-
   return (
     <div id="home-page">
       <div id="allRoutines">
@@ -13,7 +11,7 @@ const Home = ({ routines, setRoutines }) => {
               <div id="routine-view" key={routine.id}>
                 <h2>{routine.name}</h2>
                 <ul>{routine.goal}</ul>
-                <ul>{routine.creatorId.name}</ul>
+                <ul>{routine.creatorId}</ul>
               </div>
             );
           })

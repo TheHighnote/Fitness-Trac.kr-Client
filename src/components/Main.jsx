@@ -8,6 +8,7 @@ import {
   Dashboard,
   SearchBar,
   DashButtons,
+  CreateRoutine,
 } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAllPublicRoutines, fetchMe } from "../API-Adapter";
@@ -122,6 +123,20 @@ const Main = () => {
                   setUsers={setUsers}
                   searchTerm={searchTerm}
                   setSearchTerm={setSearchTerm}
+                />
+              }
+            />
+            <Route
+              path="/createroutine"
+              element={
+                <CreateRoutine
+                  routines={routines}
+                  setRoutines={setRoutines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
                 />
               }
             />

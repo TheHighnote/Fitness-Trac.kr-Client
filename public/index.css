@@ -18,7 +18,13 @@ body {
   flex-grow: 1;
   max-height: 10%;
   min-height: 40px;
-  z-index: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 9999;
+  background-color: rgb(44, 44, 44);
 }
 
 .loader {
@@ -61,7 +67,7 @@ body {
 #navbarButtons button {
   margin-left: 0px;
   padding: 1rem;
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   background-color: rgb(44, 44, 44);
   border: none;
   text-transform: uppercase;
@@ -75,7 +81,7 @@ body {
   border-bottom: 2px solid aqua;
 }
 #navbarButtons button:active {
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   background-color: rgb(44, 44, 44);
 }
 
@@ -88,9 +94,11 @@ body {
   height: 80px;
 }
 #logoSideBar{
-  background-image: linear-gradient(rgb(44, 44, 44),rgb(35, 35, 35), rgb(20, 20, 20));
   height: 45px;
   opacity: 70%;
+}
+#logoSearch{
+  height: 10px;
 }
 #searchBar {
   display: flex;
@@ -106,7 +114,7 @@ body {
 #searchBar:active {
   border: none;
 }
-@media screen and (max-width: 865px) {
+@media screen and (max-width: 1015px) {
   #searchBar {
     display: none;
   }
@@ -115,7 +123,7 @@ body {
 
 #routine-view {
   background-color: rgb(44, 44, 44);
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   margin: 5px;
   border-radius: 10px;
   border-top-left-radius: 0px;
@@ -126,6 +134,8 @@ body {
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
+  position: relative;
+  top: 5px;
 }
 #routine-view:hover {
   background-color: rgb(35, 35, 35);
@@ -138,10 +148,12 @@ body {
 }
 #DashWrapper {
   position: sticky;
+  position: -webkit-sticky;
   right: 0;
-  bottom: 0;
-  top: 0;
-  z-index: 1;
+  bottom: 0px;
+  top: 92px;
+  z-index: 0;
+  height: 690px;
   margin-top: 5px;
   margin-left: 3rem;
   border-radius: 10px;
@@ -150,7 +162,7 @@ body {
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   clip-path: inset(-10px 0px -10px -10px);
   background-color: rgb(44, 44, 44);
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
@@ -167,7 +179,7 @@ body {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   background-color: rgb(44, 44, 44);
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   width: 30%;
   margin-bottom: 20px;
   text-align: center;
@@ -175,7 +187,7 @@ body {
 }
 .submitBtn{
   background-color: rgb(44, 44, 44);
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   margin-top: 10px;
   border: none;
   height: 30px;
@@ -190,10 +202,10 @@ body {
   transition: 0.5s;
 }
 .submitBtn:active {
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
 }
 .registerLink{
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   text-decoration: none;
 }
 .registerLink:hover {
@@ -203,7 +215,7 @@ body {
   transition: 0.5s;
 }
 .registerLink:active {
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
 }
 #dashButtonWrapper{
   display: flex;
@@ -215,10 +227,11 @@ body {
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   clip-path: inset(-10px 0px -10px 0px);
   position: sticky;
+  position: -webkit-sticky;
   right: 0;
   bottom: 0;
-  top: 0;
-  z-index: 0;
+  top: 92px;
+  z-index: 9999;
   margin-top: 5px;
 }
 #dashboardButtons button{
@@ -229,13 +242,14 @@ body {
   margin-left: 0px;
   margin-right: 5px;
   padding: 1rem;
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
   background-color: rgb(44, 44, 44);
   border: none;
   text-transform: uppercase;
   height: 160px;
   width: 80px;
   cursor: pointer;
+  text-decoration:none;
   transition: 0.5s;
 }
 
@@ -247,5 +261,20 @@ body {
   border-right: 2px solid aqua;
 }
 #dashboardButtons button:active {
-  color: rgb(111, 111, 111);
+  color: rgb(181, 179, 179);
+}
+#dashBoardFeed{
+  border: 1px solid rgb(61, 61, 61);
+  border-radius: 5px;
+  height: 400px;
+  margin-right: 20px;
+  margin-left: 20px;
+
+}
+#newRoutineFormBox{
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  width: max-content;
+  padding: 2rem;
 }

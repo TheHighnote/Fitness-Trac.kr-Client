@@ -10,7 +10,7 @@ const RoutineList = ({routines, setRoutines}) => {
                 <div id="routine-view" key = {routine.id}>       
                     <h2>{routine.name}</h2>
                     <li>{routine.goal}</li>
-                    <li>{routine.creatorId.name}</li>
+                    <li>{routine.creatorId}</li>
                 </div>
             )
         }
