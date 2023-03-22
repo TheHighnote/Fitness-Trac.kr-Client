@@ -8,3 +8,5 @@ export { default as Dashboard } from "./Dashboard";
 export { default as SearchBar } from "./SearchBar";
 export { default as DashButtons } from "./DashButtons";
 export { default as CreateRoutine } from "./CreateRoutine";
+export { default as ActivityList } from "./ActivityList";
+export { default as CreateActivity} from "./CreateActivity";

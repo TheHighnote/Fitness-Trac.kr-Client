@@ -6,13 +6,11 @@ const DashButtons = ({ routines, setRoutines }) => {
   return (
     <div id="dashButtonWrapper">
       <div id="dashboardButtons">
-        <button className="material-symbols-outlined">fitness_center</button>
-        <Link to="/createroutine">
-          <button className="material-symbols-outlined">post_add</button>
-        </Link>
-        <button className="material-symbols-outlined">update</button>
+        <Link to="/createroutine"><button className="material-symbols-outlined">post_add</button></Link>
+        <Link to="/activitylist"><button className="material-symbols-outlined">fitness_center</button></Link>
+        <Link to="/createactivity"><button className="material-symbols-outlined">update</button></Link>
         <button className="material-symbols-outlined">logout</button>
-        <img id="logoSideBar" src="/Untitled_Artwork 29.png" alt="" />
+        <img id="logoSideBar" src="/Untitled_Artwork 30.png" alt="" />
       </div>
     </div>
   );

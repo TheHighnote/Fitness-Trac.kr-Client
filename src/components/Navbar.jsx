@@ -7,7 +7,6 @@ const Navbar = (props) => {
   function onLogoutClick() {
     console.log("been clicked");
     localStorage.removeItem("token");
-    window.location.reload(false);
   }
 
   return (

@@ -13,6 +13,7 @@ const Home = ({
   return (
     <div id="home-page">
       <div id="allRoutines">
+      <h1 id="activity-title">Routines</h1>
         {routines.length ? (
           routines.map((routine) => {
             return (

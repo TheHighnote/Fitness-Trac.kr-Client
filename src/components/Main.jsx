@@ -9,12 +9,15 @@ import {
   SearchBar,
   DashButtons,
   CreateRoutine,
+  ActivityList,
+  CreateActivity,
 } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { getAllPublicRoutines, fetchMe } from "../API-Adapter";
+import { getAllPublicRoutines, fetchMe, getAllActivities } from "../API-Adapter";
 
 const Main = () => {
   const [routines, setRoutines] = useState([]);
+  const [activities, setActivities] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [users, setUsers] = useState({});
@@ -22,9 +25,14 @@ const Main = () => {
 
   const retrieveRoutines = async () => {
     const allRoutines = await getAllPublicRoutines();
-    setRoutines([...allRoutines]);
+    setRoutines(allRoutines);
   };
-  async function getMe() {
+  
+  const retrieveActivities = async () => {
+      const allActivities = await getAllActivities();
+      setActivities(allActivities)
+    }
+    async function getMe() {
     try {
       const response = await fetchMe();
       console.log(response);
@@ -36,6 +44,7 @@ const Main = () => {
 
   useEffect(() => {
     retrieveRoutines();
+    retrieveActivities();
     getMe();
   }, []);
   console.log(users);
@@ -84,18 +93,14 @@ const Main = () => {
                 />
               }
             />
-            {/* <Route
-              path="/dashboard"
+             <Route
+              path="/activitylist"
               element={
-                <Dashboard
-                  routines={routines}
-                  currentUser={currentUser}
-                  setCurrentUser={setCurrentUser}
-                  loggedIn={loggedIn}
-                  users={users}
-                  setUsers={setUsers}
+                <ActivityList
+                  activities={activities}
+                  setActivities={setActivities}
                 />
-              } */}
+              }
             />
             <Route
               path="/searchbar"
@@ -133,6 +138,20 @@ const Main = () => {
                 <CreateRoutine
                   routines={routines}
                   setRoutines={setRoutines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
+                />
+              }
+            />
+            <Route
+              path="/createactivity"
+              element={
+                <CreateActivity
+                  activities={activities}
+                  setActivities={setActivities}
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
                   loggedIn={loggedIn}

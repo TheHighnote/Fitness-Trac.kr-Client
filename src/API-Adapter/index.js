@@ -79,9 +79,9 @@ export const getAllActivities = async () => {
       },
     });
     const result = await response.json();
-    const postArray = result.posts;
+    console.log(result, "result")
 
-    return postArray;
+    return result;
   } catch (error) {
     console.error(error);
   }

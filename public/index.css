@@ -96,6 +96,10 @@ body {
 #logoSideBar{
   height: 45px;
   opacity: 70%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 20px;
 }
 #logoSearch{
   height: 10px;
@@ -248,14 +252,15 @@ body {
   text-transform: uppercase;
   height: 160px;
   width: 80px;
+  text-decoration:underline rgb(44, 44, 44);
   cursor: pointer;
-  text-decoration:none;
   transition: 0.5s;
 }
 
 #dashboardButtons button:hover {
   color: aqua;
   background-color: rgb(35, 35, 35);
+  text-decoration:underline rgb(35, 35, 35);
   border-left: 1px solid rgb(44, 44, 44);
   font-size: 40px;
   border-right: 2px solid aqua;
@@ -265,7 +270,8 @@ body {
 }
 #dashBoardFeed{
   border: 1px solid rgb(61, 61, 61);
-  border-radius: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   height: 400px;
   margin-right: 20px;
   margin-left: 20px;
@@ -279,3 +285,57 @@ body {
   padding: 2rem;
 
 }
+
+#dash-view{
+    background-color: rgb(44, 44, 44);
+  color: rgb(181, 179, 179);
+  margin: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  padding: 10px;
+  width:95%;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+}
+#dash-view:hover {
+    background-color: rgb(35, 35, 35);
+    border-right: 2px solid aqua;
+    transition: 0.5s;
+  }
+  #dash-view:active {
+    box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
+    color: aqua;
+  }
+#activity-view{
+  background-color: rgb(44, 44, 44);
+  color: rgb(181, 179, 179);
+  margin: 5px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  padding: 10px;
+  width:98%;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+#activity-view:hover {
+    background-color: rgb(35, 35, 35);
+    border-bottom: 2px solid aqua;
+    transition: 0.5s;
+  }
+  #activity-view:active {
+    box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
+    color: aqua;
+  }
+  #activity-title{
+    text-align: center;
+    color: rgb(181,179,179);
+    text-transform: uppercase;
+    text-decoration: solid underline;
+  }
+  

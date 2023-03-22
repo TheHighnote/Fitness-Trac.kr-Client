@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createRoutine } from "../API-Adapter";
+import { createActivity } from "../API-Adapter";
 
-const CreateRoutine = (props) => {
+const CreateActivity = (props) => {
   const [newName, setNewName] = useState("");
-  const [newGoal, setNewGoal] = useState("");
-  const [isPublic, setIsPublic] = useState(false);
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
-  const routines = props.routines;
-  const setRoutines = props.setRoutines;
+  const activities = props.activities;
+  const setActivities = props.setActivities;
 
   const handleClick = async (event) => {
     event.preventDefault();
-    const result = await createRoutine(newName, newGoal, isPublic);
-    const routinesCopy = [...routines];
-    console.log(result, "!@#$%^&*()");
-    routinesCopy.push(result);
-    setRoutines(routinesCopy);
-    navigate("/");
+    const result = await createActivity(newName, description);
+    const activitiesCopy = [...activities];
+    console.log(result, "createActivities");
+    activitiesCopy.push(result);
+    setActivities(activitiesCopy);
+    navigate("/activitylist");
   };
 
   return (
-    <div id="newRoutineFormBox">
-      <div id="newRoutineFormFull">
+    <div id="newActivityFormBox">
+      <div id="newActivityFormFull">
         <form onSubmit={handleClick}>
           <div className="newPostLabelText">
-            <h3>CREATE A NEW ROUTINE</h3>
+            <h3>CREATE A NEW ACTIVITY</h3>
             <label>
               Name:
               <input
@@ -46,23 +45,13 @@ const CreateRoutine = (props) => {
               Goal:
               <input
                 className="newPostInput"
-                name="Goal"
+                name="Description"
                 type="text"
-                value={newGoal}
+                value={description}
                 onChange={(event) => {
                   console.log(event.target.value);
-                  setNewGoal(event.target.value);
+                  setDescription(event.target.value);
                 }}
-              />
-            </label>
-          </div>
-          <div className="newPostLabelText">
-            <label>
-              Make Your Routine Public?
-              <input
-                type="checkbox"
-                checked={isPublic}
-                onChange={(e) => setIsPublic(e.target.checked)}
               />
             </label>
           </div>
@@ -78,4 +67,4 @@ const CreateRoutine = (props) => {
   );
 };
 
-export default CreateRoutine;
+export default CreateActivity;

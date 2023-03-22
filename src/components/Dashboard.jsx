@@ -27,11 +27,12 @@ const Dashboard = ({ routines, setRoutines }) => {
           <h1>MY DASHBOARD</h1>
           <h3>@{users.username}</h3>
           <div id="dashBoardFeed">
-            <div id="allRoutines">
+            <div id="dashBoardRoutines">
+            <h1 id="activity-title">My Routines</h1>
               {routines.length ? (
                 routines.map((routine) => {
                   return (
-                    <div id="routine-view" key={routine.id}>
+                    <div id="dash-view" key={routine.id}>
                       <h2>{routine.name}</h2>
                       <ul>{routine.goal}</ul>
                       <ul>{routine.creatorId}</ul>
