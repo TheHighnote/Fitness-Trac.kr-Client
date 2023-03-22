@@ -1,31 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, RoutineList, Login, Register, Home, Dashboard } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { getAllPublicRoutines } from "../API-Adapter";
+import { getAllPublicRoutines, fetchMe } from "../API-Adapter";
 
 const Main = () => {
   const [routines, setRoutines] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState({});
 
   const retrieveRoutines = async () => {
     const allRoutines = await getAllPublicRoutines();
-    console.log(allRoutines, "allRoutines");
     setRoutines([...allRoutines]);
-    console.log("!!!!", routines);
   };
+  async function getMe() {
+    try {
+      const response = await fetchMe();
+      console.log(response);
+      setUsers(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   useEffect(() => {
     retrieveRoutines();
-    console.log("useEffex rooteens", routines);
+    getMe();
   }, []);
-
+  console.log(users);
   return (
     <>
       <div id="main">
         <BrowserRouter>
-          <Navbar />
+          <Navbar loggedIn={loggedIn} />
           <Routes>
             <Route
               path="/"
@@ -34,6 +41,8 @@ const Main = () => {
                   routines={routines}
                   currentUser={currentUser}
                   loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
                 />
               }
             />
@@ -60,6 +69,19 @@ const Main = () => {
                   setCurrentUser={setCurrentUser}
                   loggedIn={loggedIn}
                   setLoggedIn={setLoggedIn}
+                />
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <Dashboard
+                  routines={routines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
                 />
               }
             />
