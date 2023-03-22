@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SearchBar } from "./";
 
 const Navbar = (props) => {
   const loggedIn = props.loggedIn;
@@ -14,8 +15,13 @@ const Navbar = (props) => {
       <Link to="/" id="navBarLogo">
         <img id="logoNav" src="/Untitled_Artwork 29.png" alt="" />
       </Link>
-      <input id="searchBar" type="text" placeholder="Search Here" />
+
+      <SearchBar id="searchBar" />
+
       <div id="navbarButtons">
+        <Link to="/">
+          <button>Home</button>
+        </Link>
         <Link to="/register">
           <button>Register</button>
         </Link>

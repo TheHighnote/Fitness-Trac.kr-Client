@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, RoutineList, Login, Register, Home, Dashboard } from "./";
+import {
+  Navbar,
+  RoutineList,
+  Login,
+  Register,
+  Home,
+  Dashboard,
+  SearchBar,
+  DashButtons,
+} from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAllPublicRoutines, fetchMe } from "../API-Adapter";
 
@@ -8,6 +17,7 @@ const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [users, setUsers] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
 
   const retrieveRoutines = async () => {
     const allRoutines = await getAllPublicRoutines();
@@ -82,6 +92,36 @@ const Main = () => {
                   loggedIn={loggedIn}
                   users={users}
                   setUsers={setUsers}
+                />
+              }
+            />
+            <Route
+              path="/searchbar"
+              element={
+                <SearchBar
+                  routines={routines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                />
+              }
+            />
+            <Route
+              path="/dashbuttons"
+              element={
+                <DashButtons
+                  routines={routines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
                 />
               }
             />

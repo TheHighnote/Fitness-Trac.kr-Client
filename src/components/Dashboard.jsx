@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchMe } from "../API-Adapter";
+import DashButtons from "./DashButtons";
 
 const Dashboard = (props) => {
   const [users, setUsers] = useState({});
@@ -24,8 +25,8 @@ const Dashboard = (props) => {
       <div id="Dashboard">
         <div>
           <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
-          <h2>MY DASHBOARD</h2>
-          <ul>@{users.username}</ul>
+          <h1>MY DASHBOARD</h1>
+          <h3>@{users.username}</h3>
           <ul>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
             auctor nec lacus eu venenatis. Sed pretium sed felis eget laoreet.

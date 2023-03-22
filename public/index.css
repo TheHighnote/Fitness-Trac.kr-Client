@@ -76,6 +76,7 @@ body {
 }
 #navbarButtons button:active {
   color: rgb(111, 111, 111);
+  background-color: rgb(44, 44, 44);
 }
 
 
@@ -86,10 +87,15 @@ body {
   margin-top: 10px;
   height: 80px;
 }
+#logoSideBar{
+  background-image: linear-gradient(rgb(44, 44, 44),rgb(35, 35, 35), rgb(20, 20, 20));
+  height: 45px;
+  opacity: 70%;
+}
 #searchBar {
   display: flex;
   color: aqua;
-  width: 50%;
+  width: 600px;
   height: 30px;
   border-radius: 5px;
   background-color: rgb(35, 35, 35);
@@ -106,17 +112,25 @@ body {
   }
 }
 
+
 #routine-view {
   background-color: rgb(44, 44, 44);
   color: rgb(111, 111, 111);
   margin: 5px;
   border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   padding: 10px;
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
+}
+#routine-view:hover {
+  background-color: rgb(35, 35, 35);
+  border-left: 2px solid aqua;
+  transition: 0.5s;
 }
 #routine-view:active {
   box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
@@ -130,15 +144,20 @@ body {
   z-index: 1;
   margin-top: 5px;
   margin-left: 3rem;
-  margin-right: 5px;
   border-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  clip-path: inset(-10px 0px -10px -10px);
   background-color: rgb(44, 44, 44);
   color: rgb(111, 111, 111);
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
+}
+#Dashboard{
+  margin: 1rem;
 }
 .loginPageBox{
   display: flex;
@@ -184,5 +203,49 @@ body {
   transition: 0.5s;
 }
 .registerLink:active {
+  color: rgb(111, 111, 111);
+}
+#dashButtonWrapper{
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  height: 690px;
+  border-left: 1px solid rgb(61, 61, 61);
+  border-top: 1px solid rgb(61, 61, 61);
+  box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  clip-path: inset(-10px 0px -10px 0px);
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 0;
+  margin-top: 5px;
+}
+#dashboardButtons button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  margin-right: 5px;
+  padding: 1rem;
+  color: rgb(111, 111, 111);
+  background-color: rgb(44, 44, 44);
+  border: none;
+  text-transform: uppercase;
+  height: 160px;
+  width: 80px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#dashboardButtons button:hover {
+  color: aqua;
+  background-color: rgb(35, 35, 35);
+  border-left: 1px solid rgb(44, 44, 44);
+  font-size: 40px;
+  border-right: 2px solid aqua;
+}
+#dashboardButtons button:active {
   color: rgb(111, 111, 111);
 }
