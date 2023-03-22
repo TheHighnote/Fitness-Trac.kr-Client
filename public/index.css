@@ -67,6 +67,7 @@ body {
   text-transform: uppercase;
   height: 80px;
   cursor: pointer;
+  transition: 0.5s;
 }
 #navbarButtons button:hover {
   color: aqua;
@@ -77,10 +78,14 @@ body {
   color: rgb(111, 111, 111);
 }
 
-#title {
+
+#logoNav {
   height: 80px;
 }
-
+#logoDash {
+  margin-top: 10px;
+  height: 80px;
+}
 #searchBar {
   display: flex;
   color: aqua;
@@ -105,7 +110,6 @@ body {
   background-color: rgb(44, 44, 44);
   color: rgb(111, 111, 111);
   margin: 5px;
-  /* border: solid 2px black; */
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   padding: 10px;
@@ -124,13 +128,60 @@ body {
   bottom: 0;
   top: 0;
   z-index: 1;
+  margin-top: 5px;
   margin-left: 3rem;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
-  background-color: aqua;
-  color: black;
+  background-color: rgb(44, 44, 44);
+  color: rgb(111, 111, 111);
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
+}
+.loginPageBox{
+  display: flex;
+  justify-content: center;
+}
+.loginPage{
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  background-color: rgb(44, 44, 44);
+  color: rgb(111, 111, 111);
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.submitBtn{
+  background-color: rgb(44, 44, 44);
+  color: rgb(111, 111, 111);
+  margin-top: 10px;
+  border: none;
+  height: 30px;
+  text-transform: uppercase;
+  font-size: large;
+  cursor: pointer;
+}
+.submitBtn:hover {
+  color: aqua;
+  background-color: rgb(44, 44, 44);
+  border-bottom: 2px solid aqua;
+  transition: 0.5s;
+}
+.submitBtn:active {
+  color: rgb(111, 111, 111);
+}
+.registerLink{
+  color: rgb(111, 111, 111);
+  text-decoration: none;
+}
+.registerLink:hover {
+  color: aqua;
+  background-color: rgb(44, 44, 44);
+  border-bottom: 2px solid aqua;
+  transition: 0.5s;
+}
+.registerLink:active {
+  color: rgb(111, 111, 111);
 }

@@ -75,6 +75,7 @@ function Register() {
           <Link to="/login" className="registerLink">
             Already have an account? Login here!
           </Link>
+          <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
         </form>
       </div>
     </div>

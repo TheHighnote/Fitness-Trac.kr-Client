@@ -7,7 +7,8 @@ const Dashboard = ({ routines, setRoutines }) => {
     <div id="DashWrapper">
       <div id="Dashboard">
         <div>
-          <h2>"HELLO WORLD</h2>
+          <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
+          <h2>MY DASHBOARD</h2>
           <li>"AFGAFGAFGAFGAFGAFAGFAGFGAFGAUFSGU"</li>
           <li>"ABCABCABCABCABCSJKDKJDHODHO@#$%^&&^%$#@"</li>
         </div>

@@ -16,7 +16,6 @@ function Login({ loggedIn, setLoggedIn }) {
   const handleClick = async (event) => {
     event.preventDefault();
     const result = await loginUser(userName, password);
-    console.log(result);
     if (result && result.token) {
       localStorage.setItem("token", result.token);
       setLoggedIn(true);
@@ -55,8 +54,9 @@ function Login({ loggedIn, setLoggedIn }) {
           </button>
           <br></br>
           <Link to="/register" className="registerLink">
-            Dont have an account? Register here!
+            Don't have an account? Register here!
           </Link>
+          <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
         </form>
       </div>
     </div>
