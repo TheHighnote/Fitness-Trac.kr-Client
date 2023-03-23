@@ -28,7 +28,7 @@ const CreateRoutine = (props) => {
           <div className="newPostLabelText">
             <h3>CREATE A NEW ROUTINE</h3>
             <label>
-              Name:
+              <p>Name:</p>
               <input
                 className="newPostInput"
                 name="title"
@@ -43,7 +43,7 @@ const CreateRoutine = (props) => {
           </div>
           <div className="newPostLabelText">
             <label>
-              Goal:
+              <p>Goal:</p>
               <input
                 className="newPostInput"
                 name="Goal"
@@ -67,7 +67,7 @@ const CreateRoutine = (props) => {
             </label>
           </div>
           <div>
-            <button className="newPostBtn" type="submit">
+            <button className="submitBtn" type="submit">
               POST
             </button>
           </div>

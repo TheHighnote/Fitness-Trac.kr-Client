@@ -33,7 +33,7 @@ const CreateActivity = (props) => {
           <div className="newPostLabelText">
             <h3>CREATE A NEW ACTIVITY</h3>
             <label>
-              Name:
+              <p>Name:</p>
               <input
                 className="newPostInput"
                 name="title"
@@ -48,7 +48,7 @@ const CreateActivity = (props) => {
           </div>
           <div className="newPostLabelText">
             <label>
-              Goal:
+              <p>Goal:</p>
               <input
                 className="newPostInput"
                 name="Description"
@@ -62,7 +62,7 @@ const CreateActivity = (props) => {
             </label>
           </div>
           <div>
-            <button className="newPostBtn" type="submit">
+            <button className="submitBtn" type="submit">
               POST
             </button>
           </div>

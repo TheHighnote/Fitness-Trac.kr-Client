@@ -20,23 +20,21 @@ const Navbar = (props) => {
       <SearchBar id="searchBar" />
 
       <div id="navbarButtons">
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-        <Link to="/register">
+        
+        {loggedIn ?
+        <div>
+          <Link to="/"><button>Home</button></Link>
+          <Link><button id="navbarButtons" onClick={onLogoutClick}>Logout</button></Link>
+        </div>
+         : 
+         <div>
+          <Link to="/"><button>Home</button></Link>
+          <Link to="/login"><button>Login</button></Link>
+          <Link to="/register">
           <button>Register</button>
         </Link>
-        {loggedIn ? (
-          <Link>
-            <button id="navbarButtons" onClick={onLogoutClick}>
-              Logout
-            </button>
-          </Link>
-        ) : (
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-        )}
+          </div>
+        }
       </div>
     </div>
   );

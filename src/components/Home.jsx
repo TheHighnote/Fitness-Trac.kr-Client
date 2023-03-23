@@ -20,8 +20,8 @@ const Home = ({
             return (
               <div id="routine-view" key={routine.id}>
                 <h2>{routine.name}</h2>
-                <ul>{routine.goal}</ul>
-                <ul>@{routine.creatorName}</ul>
+                <p>{routine.goal}</p>
+                <p>@{routine.creatorName}</p>
               </div>
             );
           })

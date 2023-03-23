@@ -35,18 +35,18 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
   }, [loggedIn]);
   useEffect(() => {
     routineForUser();
-  }, [users]);
+  }, [users, loggedIn]);
   console.log(userRoutine, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
   return (
     <div id="DashWrapper">
       <div id="Dashboard">
         <div>
           <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
-          <h1>MY DASHBOARD</h1>
-          <h3>@{users.username}</h3>
+          <h1 id="dashboard-header">DASHBOARD</h1>
+          {loggedIn ? (<h3>@{users.username}</h3>) : (<h3></h3>)}
           <div id="dashBoardFeed">
             <div id="dashBoardRoutines">
-              <h1 id="activity-title">My Routines</h1>
+              {loggedIn ? (<h1 id="dash-title">My Routines</h1>) : (<h1 id="dash-title">Log in to view my Routines</h1>)}
               {userRoutine.length ? (
                 userRoutine.map((routine) => {
                   console.log(routine);
@@ -59,7 +59,7 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
                   );
                 })
               ) : (
-                <div className="loader"></div>
+                <div></div>
               )}
             </div>
           </div>

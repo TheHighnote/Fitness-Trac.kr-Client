@@ -85,7 +85,6 @@ body {
   background-color: rgb(44, 44, 44);
 }
 
-
 #logoNav {
   height: 80px;
 }
@@ -93,7 +92,7 @@ body {
   margin-top: 10px;
   height: 80px;
 }
-#logoSideBar{
+#logoSideBar {
   height: 45px;
   opacity: 70%;
   display: flex;
@@ -101,7 +100,7 @@ body {
   position: relative;
   left: 20px;
 }
-#logoSearch{
+#logoSearch {
   height: 10px;
 }
 #searchBar {
@@ -123,7 +122,6 @@ body {
     display: none;
   }
 }
-
 
 #routine-view {
   background-color: rgb(44, 44, 44);
@@ -172,14 +170,14 @@ body {
   text-align: center;
   cursor: pointer;
 }
-#Dashboard{
+#Dashboard {
   margin: 1rem;
 }
-.loginPageBox{
+.loginPageBox {
   display: flex;
   justify-content: center;
 }
-.loginPage{
+.loginPage {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   background-color: rgb(44, 44, 44);
@@ -189,7 +187,7 @@ body {
   text-align: center;
   cursor: pointer;
 }
-.submitBtn{
+.submitBtn {
   background-color: rgb(44, 44, 44);
   color: rgb(181, 179, 179);
   margin-top: 10px;
@@ -208,7 +206,7 @@ body {
 .submitBtn:active {
   color: rgb(181, 179, 179);
 }
-.registerLink{
+.registerLink {
   color: rgb(181, 179, 179);
   text-decoration: none;
 }
@@ -221,7 +219,7 @@ body {
 .registerLink:active {
   color: rgb(181, 179, 179);
 }
-#dashButtonWrapper{
+#dashButtonWrapper {
   display: flex;
   justify-content: flex-end;
   flex-grow: 1;
@@ -238,7 +236,7 @@ body {
   z-index: 9999;
   margin-top: 5px;
 }
-#dashboardButtons button{
+#dashboardButtons button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,7 +250,7 @@ body {
   text-transform: uppercase;
   height: 160px;
   width: 80px;
-  text-decoration:underline rgb(44, 44, 44);
+  text-decoration: underline rgb(44, 44, 44);
   cursor: pointer;
   transition: 0.5s;
 }
@@ -260,7 +258,7 @@ body {
 #dashboardButtons button:hover {
   color: aqua;
   background-color: rgb(35, 35, 35);
-  text-decoration:underline rgb(35, 35, 35);
+  text-decoration: underline rgb(35, 35, 35);
   border-left: 1px solid rgb(44, 44, 44);
   font-size: 40px;
   border-right: 2px solid aqua;
@@ -268,7 +266,7 @@ body {
 #dashboardButtons button:active {
   color: rgb(181, 179, 179);
 }
-#dashBoardFeed{
+#dashBoardFeed {
   border: 1px solid rgb(61, 61, 61);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -277,25 +275,48 @@ body {
   margin-left: 20px;
   overflow: scroll;
 }
-#dashBoardFeed::-webkit-scrollbar{
+#dashBoardFeed::-webkit-scrollbar {
   display: none;
 }
-#newRoutineFormBox{
-  border: 1px solid gray;
+#newRoutineFormBox {
   display: flex;
   justify-content: center;
-  width: max-content;
-  padding: 2rem;
-
 }
-
-#dash-view{
+#newRoutineFormFull {
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  background-color: rgb(44, 44, 44);
+  color: rgb(181, 179, 179);
+  width: 20%;
+  padding: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+#newActivityFormBox {
+  display: flex;
+  justify-content: center;
+}
+#newActivityFormFull {
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 10px rgb(21, 21, 21);
+  background-color: rgb(44, 44, 44);
+  color: rgb(181, 179, 179);
+  width: 20%;
+  padding: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+#dash-view {
   background-color: rgb(44, 44, 44);
   color: rgb(181, 179, 179);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 10px;
-  width:auto;
+  width: auto;
   margin-right: 5px;
   text-align: center;
   cursor: pointer;
@@ -303,15 +324,15 @@ body {
   top: 5px;
 }
 #dash-view:hover {
-    background-color: rgb(35, 35, 35);
-    border-right: 2px solid aqua;
-    transition: 0.5s;
-  }
-  #dash-view:active {
-    box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
-    color: aqua;
-  }
-#activity-view{
+  background-color: rgb(35, 35, 35);
+  border-right: 2px solid aqua;
+  transition: 0.5s;
+}
+#dash-view:active {
+  box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
+  color: aqua;
+}
+#activity-view {
   background-color: rgb(44, 44, 44);
   color: rgb(181, 179, 179);
   margin: 5px;
@@ -319,25 +340,49 @@ body {
   border-top-left-radius: 10px;
   box-shadow: 0px 0px 10px rgb(21, 21, 21);
   padding: 10px;
-  width:98%;
+  width: 98%;
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
 }
 #activity-view:hover {
-    background-color: rgb(35, 35, 35);
-    border-bottom: 2px solid aqua;
-    transition: 0.5s;
-  }
-  #activity-view:active {
-    box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
-    color: aqua;
-  }
-  #activity-title{
-    text-align: center;
-    margin-left: 35px;
-    color: rgb(181,179,179);
-    text-transform: uppercase;
-    text-decoration: solid underline;
-  }
-  
+  background-color: rgb(35, 35, 35);
+  border-bottom: 2px solid aqua;
+  transition: 0.5s;
+}
+#activity-view:active {
+  box-shadow: inset 0px 0px 10px rgb(21, 21, 21);
+  color: aqua;
+}
+#activity-title {
+  text-align: center;
+  margin-left: 35px;
+  color: rgb(181, 179, 179);
+  text-transform: uppercase;
+  text-decoration: solid underline;
+}
+#dash-title {
+  text-align: center;
+  color: rgb(181, 179, 179);
+  text-transform: uppercase;
+}
+#dashboard-header {
+  text-align: center;
+  color: rgb(181, 179, 179);
+  text-transform: uppercase;
+  text-decoration: solid underline;
+}
+.newPostInput {
+  display: flex;
+  color: aqua;
+  width: 285px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(35, 35, 35);
+  border: 1px solid rgb(29, 29, 29);
+  cursor: pointer;
+}
+.newPostLabelText{
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
