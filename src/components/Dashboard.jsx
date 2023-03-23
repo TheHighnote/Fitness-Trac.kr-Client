@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchMe, getRoutinesForUser } from "../API-Adapter";
+import { deleteRoutines, fetchMe, getRoutinesForUser } from "../API-Adapter";
 import DashButtons from "./DashButtons";
 
 const Dashboard = ({ routines, setRoutines, loggedIn }) => {
@@ -29,13 +29,26 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
       console.error(err);
     }
   }
+  const handleClickDelete = async (id) => {
+    const result = await deleteRoutines(id);
+
+    const filteredData = userRoutine.filter((element) => {
+      console.log(element, "!@#$%^&*()");
+      if (element.id !== id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setUserRoutine(filteredData);
+  };
 
   useEffect(() => {
     getMe();
   }, [loggedIn]);
   useEffect(() => {
     routineForUser();
-  }, [users, loggedIn]);
+  }, [users]);
   console.log(userRoutine, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
   return (
     <div id="DashWrapper">
@@ -43,10 +56,14 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
         <div>
           <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
           <h1 id="dashboard-header">DASHBOARD</h1>
-          {loggedIn ? (<h3>@{users.username}</h3>) : (<h3></h3>)}
+          {loggedIn ? <h3>@{users.username}</h3> : <h3></h3>}
           <div id="dashBoardFeed">
             <div id="dashBoardRoutines">
-              {loggedIn ? (<h1 id="dash-title">My Routines</h1>) : (<h1 id="dash-title">Log in to view my Routines</h1>)}
+              {loggedIn ? (
+                <h1 id="dash-title">My Routines</h1>
+              ) : (
+                <h1 id="dash-title">Log in to view my Routines</h1>
+              )}
               {userRoutine.length ? (
                 userRoutine.map((routine) => {
                   console.log(routine);
@@ -55,6 +72,18 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
                       <p>{routine.name}</p>
                       <p>{routine.goal}</p>
                       <p>Public View: {routine.isPublic ? "True" : "False"}</p>
+                      {routine.id ? (
+                        <div>
+                          <button
+                            className="deleteBtn"
+                            onClick={() => {
+                              handleClickDelete(routine.id);
+                            }}
+                          >
+                            DELETE
+                          </button>
+                        </div>
+                      ) : null}
                     </div>
                   );
                 })

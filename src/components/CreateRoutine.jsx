@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createRoutine } from "../API-Adapter";
+import CreateActivity from "./CreateActivity";
 
 const CreateRoutine = (props) => {
   const [newName, setNewName] = useState("");
@@ -74,6 +75,7 @@ const CreateRoutine = (props) => {
           <img id="logoDash" src="/Untitled_Artwork 29.png" />
         </form>
       </div>
+      <CreateActivity />
     </div>
   );
 };

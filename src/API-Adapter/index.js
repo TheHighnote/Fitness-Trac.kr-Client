@@ -272,6 +272,7 @@ export const updateRoutineActivity = async (count, duration, id) => {
 export const deleteRoutineActivity = async (id) => {
   try {
     const response = await fetch(`${URL}/routine_activities/${id}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
