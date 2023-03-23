@@ -386,3 +386,7 @@ body {
     margin-top: 20px;
     margin-bottom: 5px;
 }
+.light-mode {
+    background-color: #f3f3f3;
+    color: black;
+  }
