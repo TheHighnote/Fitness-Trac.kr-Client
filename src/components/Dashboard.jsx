@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { fetchMe } from "../API-Adapter";
+import { fetchMe, getRoutinesForUser } from "../API-Adapter";
 import DashButtons from "./DashButtons";
 
 const Dashboard = ({ routines, setRoutines }) => {
   const [users, setUsers] = useState({});
+  const [userRoutine, setUserRoutine] = useState({});
 
   async function getMe() {
     try {
       const response = await fetchMe();
-      console.log(response);
       setUsers(response);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async function routineForUser() {
+    try {
+      const response = await getRoutinesForUser();
+      setUserRoutine(response);
     } catch (err) {
       console.error(err);
     }
@@ -17,8 +26,10 @@ const Dashboard = ({ routines, setRoutines }) => {
 
   useEffect(() => {
     getMe();
+    routineForUser();
   }, []);
-  console.log(routines, "ASDFGHJKLKJHGFDSA");
+  console.log(routines, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
+  console.log(routines.goal, "@@@@@@@@@@@");
   return (
     <div id="DashWrapper">
       <div id="Dashboard">
@@ -28,14 +39,14 @@ const Dashboard = ({ routines, setRoutines }) => {
           <h3>@{users.username}</h3>
           <div id="dashBoardFeed">
             <div id="dashBoardRoutines">
-            <h1 id="activity-title">My Routines</h1>
+              <h1 id="activity-title">My Routines</h1>
               {routines.length ? (
                 routines.map((routine) => {
                   return (
                     <div id="dash-view" key={routine.id}>
-                      <h2>{routine.name}</h2>
-                      <ul>{routine.goal}</ul>
-                      <ul>{routine.creatorId}</ul>
+                      <h2>{userRoutine.name}</h2>
+                      <ul>{userRoutine.goal}</ul>
+                      <ul>{userRoutine.creatorName}</ul>
                     </div>
                   );
                 })

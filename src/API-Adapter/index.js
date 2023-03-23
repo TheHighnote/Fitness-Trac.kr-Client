@@ -54,9 +54,9 @@ export const fetchMe = async () => {
     console.error(err);
   }
 };
-export const getRoutinesForUser = async (user) => {
+export const getRoutinesForUser = async (username) => {
   try {
-    const response = await fetch(`${URL}/users/${user}/routines`, {
+    const response = await fetch(`${URL}/users/${username}/routines`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -69,6 +69,7 @@ export const getRoutinesForUser = async (user) => {
     console.error(err);
   }
 };
+
 //Activity Endpoints
 
 export const getAllActivities = async () => {

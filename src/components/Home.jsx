@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Dashboard, DashButtons } from "./";
+import { getRoutinesForUser } from "../API-Adapter";
 
 const Home = ({
   routines,
@@ -13,14 +14,14 @@ const Home = ({
   return (
     <div id="home-page">
       <div id="allRoutines">
-      <h1 id="activity-title">Routines</h1>
+        <h1 id="activity-title">Routines</h1>
         {routines.length ? (
           routines.map((routine) => {
             return (
               <div id="routine-view" key={routine.id}>
                 <h2>{routine.name}</h2>
                 <ul>{routine.goal}</ul>
-                <ul>{routine.creatorId}</ul>
+                <ul>@{routine.creatorName}</ul>
               </div>
             );
           })

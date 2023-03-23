@@ -335,6 +335,7 @@ body {
   }
   #activity-title{
     text-align: center;
+    margin-left: 35px;
     color: rgb(181,179,179);
     text-transform: uppercase;
     text-decoration: solid underline;
