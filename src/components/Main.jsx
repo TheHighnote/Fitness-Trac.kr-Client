@@ -13,7 +13,11 @@ import {
   CreateActivity,
 } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { getAllPublicRoutines, fetchMe, getAllActivities } from "../API-Adapter";
+import {
+  getAllPublicRoutines,
+  fetchMe,
+  getAllActivities,
+} from "../API-Adapter";
 
 const Main = () => {
   const [routines, setRoutines] = useState([]);
@@ -27,12 +31,12 @@ const Main = () => {
     const allRoutines = await getAllPublicRoutines();
     setRoutines(allRoutines);
   };
-  
+
   const retrieveActivities = async () => {
-      const allActivities = await getAllActivities();
-      setActivities(allActivities)
-    }
-    async function getMe() {
+    const allActivities = await getAllActivities();
+    setActivities(allActivities);
+  };
+  async function getMe() {
     try {
       const response = await fetchMe();
       console.log(response);
@@ -52,18 +56,18 @@ const Main = () => {
     <>
       <div id="main">
         <BrowserRouter>
-          <Navbar loggedIn={loggedIn} />
+          <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           <Routes>
             <Route
               path="/"
               element={
                 <Home
-                routines={routines}
-                currentUser={currentUser}
-                setCurrentUser={setCurrentUser}
-                loggedIn={loggedIn}
-                users={users}
-                setUsers={setUsers}
+                  routines={routines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
                 />
               }
             />
@@ -93,7 +97,7 @@ const Main = () => {
                 />
               }
             />
-             <Route
+            <Route
               path="/activitylist"
               element={
                 <ActivityList

@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import { fetchMe, getRoutinesForUser } from "../API-Adapter";
 import DashButtons from "./DashButtons";
 
-const Dashboard = ({ routines, setRoutines }) => {
+const Dashboard = ({ routines, setRoutines, loggedIn }) => {
   const [users, setUsers] = useState({});
-  const [userRoutine, setUserRoutine] = useState({});
+  const [userRoutine, setUserRoutine] = useState([]);
 
   async function getMe() {
+    //only want getMe to run if token is present
+    const token = localStorage.getItem("token");
     try {
-      const response = await fetchMe();
-      setUsers(response);
+      if (token) {
+        const response = await fetchMe(token);
+        setUsers(response);
+      } else {
+        setUsers({});
+      }
     } catch (err) {
       console.error(err);
     }
@@ -17,7 +23,7 @@ const Dashboard = ({ routines, setRoutines }) => {
 
   async function routineForUser() {
     try {
-      const response = await getRoutinesForUser();
+      const response = await getRoutinesForUser(users.username);
       setUserRoutine(response);
     } catch (err) {
       console.error(err);
@@ -26,10 +32,11 @@ const Dashboard = ({ routines, setRoutines }) => {
 
   useEffect(() => {
     getMe();
+  }, [loggedIn]);
+  useEffect(() => {
     routineForUser();
-  }, []);
-  console.log(routines, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
-  console.log(routines.goal, "@@@@@@@@@@@");
+  }, [users]);
+  console.log(userRoutine, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
   return (
     <div id="DashWrapper">
       <div id="Dashboard">
@@ -40,13 +47,14 @@ const Dashboard = ({ routines, setRoutines }) => {
           <div id="dashBoardFeed">
             <div id="dashBoardRoutines">
               <h1 id="activity-title">My Routines</h1>
-              {routines.length ? (
-                routines.map((routine) => {
+              {userRoutine.length ? (
+                userRoutine.map((routine) => {
+                  console.log(routine);
                   return (
                     <div id="dash-view" key={routine.id}>
-                      <h2>{userRoutine.name}</h2>
-                      <ul>{userRoutine.goal}</ul>
-                      <ul>{userRoutine.creatorName}</ul>
+                      <p>{routine.name}</p>
+                      <p>{routine.goal}</p>
+                      <p>Public View: {routine.isPublic}</p>
                     </div>
                   );
                 })

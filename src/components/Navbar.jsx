@@ -4,10 +4,11 @@ import { SearchBar } from "./";
 
 const Navbar = (props) => {
   const loggedIn = props.loggedIn;
+  const setLoggedIn = props.setLoggedIn;
   function onLogoutClick() {
-    console.log("been clicked");
     localStorage.removeItem("token");
-    window.location.reload(false);
+    localStorage.removeItem("currentUser");
+    setLoggedIn(false);
   }
 
   return (

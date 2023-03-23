@@ -39,12 +39,12 @@ export const registerUser = async (username, password) => {
     console.log(error);
   }
 };
-export const fetchMe = async () => {
+export const fetchMe = async (token) => {
   try {
     const response = await fetch(`${URL}/users/me`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const result = await response.json();
@@ -55,6 +55,7 @@ export const fetchMe = async () => {
   }
 };
 export const getRoutinesForUser = async (username) => {
+  console.log(username, "$$$$$$$$");
   try {
     const response = await fetch(`${URL}/users/${username}/routines`, {
       headers: {
