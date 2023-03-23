@@ -54,7 +54,7 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
                     <div id="dash-view" key={routine.id}>
                       <p>{routine.name}</p>
                       <p>{routine.goal}</p>
-                      <p>Public View: {routine.isPublic}</p>
+                      <p>Public View: {routine.isPublic ? "True" : "False"}</p>
                     </div>
                   );
                 })
