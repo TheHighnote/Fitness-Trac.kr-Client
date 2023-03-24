@@ -72,7 +72,7 @@ const CreateRoutine = (props) => {
               POST
             </button>
           </div>
-          <img id="logoDash" src="/Untitled_Artwork 29.png" />
+          {/* <img id="logoDash" src="/Untitled_Artwork 29.png" /> */}
         </form>
       </div>
       <CreateActivity />

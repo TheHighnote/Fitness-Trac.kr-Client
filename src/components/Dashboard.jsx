@@ -68,11 +68,15 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
                 userRoutine.map((routine) => {
                   console.log(routine);
                   return (
-                    <div id="dash-view" key={routine.id}>
+                    <div id="dash-view" key={routine.id}> 
+                    {loggedIn ? (
+                      <div>
                       <p>{routine.name}</p>
-                      <p>{routine.goal}</p>
+                      <p>{routine.goal}</p> 
                       <p>Public View: {routine.isPublic ? "True" : "False"}</p>
-                      {routine.id ? (
+                      </div>
+                      ) : (<p></p>)}
+                      {routine.id && loggedIn ? (
                         <div>
                           <button
                             className="deleteBtn"
@@ -89,11 +93,12 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
                 })
               ) : (
                 <div></div>
+            
               )}
-            </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
