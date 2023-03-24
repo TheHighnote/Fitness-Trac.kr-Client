@@ -6,21 +6,6 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
   // const [users, setUsers] = useState({});
   const [userRoutine, setUserRoutine] = useState([]);
 
-  // async function getMe() {
-  //   //only want getMe to run if token is present
-  //   const token = localStorage.getItem("token");
-  //   try {
-  //     if (token) {
-  //       const response = await fetchMe(token);
-  //       setUsers(response);
-  //     } else {
-  //       setUsers({});
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // }
-
   async function routineForUser() {
     try {
       const response = await getRoutinesForUser(users.username);
@@ -42,17 +27,11 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
     setUserRoutine(filteredData);
   };
 
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     getMe();
-  //   }
-  // }, [loggedIn]);
   useEffect(() => {
     if (users && users.id) {
       routineForUser();
     }
   }, [users]);
-  console.log(userRoutine, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
   return (
     <div id="DashWrapper">
       <div id="Dashboard">

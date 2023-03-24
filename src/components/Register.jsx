@@ -19,7 +19,6 @@ function Register() {
 
     try {
       const result = await registerUser(username, password);
-      console.log(result.token, "RESULT25");
       localStorage.setItem("token", result.token);
       setUsername(username);
       setPassword(password);
@@ -31,7 +30,6 @@ function Register() {
     }
   };
 
-  console.log(typeof username);
   return (
     <div className="loginPageBox">
       <div className="loginPage">

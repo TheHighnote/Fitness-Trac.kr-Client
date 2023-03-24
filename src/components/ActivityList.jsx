@@ -1,7 +1,6 @@
 import React from "react";
 
 const ActivityList = ({ activities, setActivities }) => {
-  console.log(activities, "Activities in ActivityList");
   return (
     <div id="allActivities">
       <h1 id="activity-title">Activities</h1>

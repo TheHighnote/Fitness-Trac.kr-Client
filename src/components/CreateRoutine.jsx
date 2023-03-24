@@ -16,7 +16,6 @@ const CreateRoutine = (props) => {
     event.preventDefault();
     const result = await createRoutine(newName, newGoal, isPublic);
     const routinesCopy = [...routines];
-    console.log(result, "!@#$%^&*()");
     routinesCopy.push(result);
     setRoutines(routinesCopy);
     navigate("/");
@@ -72,7 +71,6 @@ const CreateRoutine = (props) => {
               POST
             </button>
           </div>
-          {/* <img id="logoDash" src="/Untitled_Artwork 29.png" /> */}
         </form>
       </div>
       <CreateActivity />

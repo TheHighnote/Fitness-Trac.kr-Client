@@ -17,7 +17,6 @@ const CreateActivity = (props) => {
       event.preventDefault();
       const result = await createActivity(newName, newDescription);
       const activitiesCopy = [...activities];
-      console.log(result, "createActivities");
       activitiesCopy.push(result);
       setActivities(activitiesCopy);
       navigate("/activitylist");
@@ -40,7 +39,6 @@ const CreateActivity = (props) => {
                 type="text"
                 value={newName}
                 onChange={(event) => {
-                  console.log(event.target.value);
                   setNewName(event.target.value);
                 }}
               />
@@ -55,7 +53,6 @@ const CreateActivity = (props) => {
                 type="text"
                 value={newDescription}
                 onChange={(event) => {
-                  console.log(event.target.value);
                   setNewDescription(event.target.value);
                 }}
               />
@@ -66,7 +63,6 @@ const CreateActivity = (props) => {
               POST
             </button>
           </div>
-          {/* <img id="logoDash" src="/Untitled_Artwork 29.png" /> */}
         </form>
       </div>
     </div>

@@ -59,7 +59,6 @@ const Main = () => {
     retrieveRoutines();
     retrieveActivities();
   }, []);
-  console.log(users);
   return (
     <>
       <div id="main">

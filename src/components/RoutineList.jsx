@@ -2,7 +2,6 @@ import React from "react";
 
 const RoutineList = ({routines, setRoutines}) => {    
 
-    console.log(routines, "Routines in RoutineList")
     return (
     <div id="allRoutines">
         {routines.length ? routines.map((routine)=> {
