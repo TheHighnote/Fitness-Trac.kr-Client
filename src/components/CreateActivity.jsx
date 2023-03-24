@@ -46,7 +46,7 @@ const CreateActivity = (props) => {
           </div>
           <div className="newPostLabelText">
             <label>
-              <p>Goal:</p>
+              <p>Description:</p>
               <input
                 className="newPostInput"
                 name="Description"

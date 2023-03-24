@@ -11,6 +11,7 @@ import {
   CreateRoutine,
   ActivityList,
   CreateActivity,
+  EditRoutine,
 } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
@@ -147,6 +148,20 @@ const Main = () => {
               path="/createroutine"
               element={
                 <CreateRoutine
+                  routines={routines}
+                  setRoutines={setRoutines}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
+                />
+              }
+            />
+            <Route
+              path="/editroutine"
+              element={
+                <EditRoutine
                   routines={routines}
                   setRoutines={setRoutines}
                   currentUser={currentUser}
