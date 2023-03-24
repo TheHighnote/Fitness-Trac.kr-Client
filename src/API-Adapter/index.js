@@ -55,7 +55,6 @@ export const fetchMe = async (token) => {
   }
 };
 export const getRoutinesForUser = async (username) => {
-  console.log(username, "$$$$$$$$");
   try {
     const response = await fetch(`${URL}/users/${username}/routines`, {
       headers: {

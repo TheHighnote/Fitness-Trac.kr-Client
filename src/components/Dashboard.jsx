@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import { deleteRoutines, fetchMe, getRoutinesForUser } from "../API-Adapter";
 import DashButtons from "./DashButtons";
 
-const Dashboard = ({ routines, setRoutines, loggedIn }) => {
-  const [users, setUsers] = useState({});
+const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
+  // const [users, setUsers] = useState({});
   const [userRoutine, setUserRoutine] = useState([]);
 
-  async function getMe() {
-    //only want getMe to run if token is present
-    const token = localStorage.getItem("token");
-    try {
-      if (token) {
-        const response = await fetchMe(token);
-        setUsers(response);
-      } else {
-        setUsers({});
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  // async function getMe() {
+  //   //only want getMe to run if token is present
+  //   const token = localStorage.getItem("token");
+  //   try {
+  //     if (token) {
+  //       const response = await fetchMe(token);
+  //       setUsers(response);
+  //     } else {
+  //       setUsers({});
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
 
   async function routineForUser() {
     try {
@@ -33,7 +33,6 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
     const result = await deleteRoutines(id);
 
     const filteredData = userRoutine.filter((element) => {
-      console.log(element, "!@#$%^&*()");
       if (element.id !== id) {
         return true;
       } else {
@@ -43,11 +42,15 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
     setUserRoutine(filteredData);
   };
 
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     getMe();
+  //   }
+  // }, [loggedIn]);
   useEffect(() => {
-    getMe();
-  }, [loggedIn]);
-  useEffect(() => {
-    routineForUser();
+    if (users && users.id) {
+      routineForUser();
+    }
   }, [users]);
   console.log(userRoutine, "!!!!!!!!!!!!!!!!!!!!!!!!!!");
   return (
@@ -66,16 +69,19 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
               )}
               {userRoutine.length ? (
                 userRoutine.map((routine) => {
-                  console.log(routine);
                   return (
-                    <div id="dash-view" key={routine.id}> 
-                    {loggedIn ? (
-                      <div>
-                      <p>{routine.name}</p>
-                      <p>{routine.goal}</p> 
-                      <p>Public View: {routine.isPublic ? "True" : "False"}</p>
-                      </div>
-                      ) : (<p></p>)}
+                    <div id="dash-view" key={routine.id}>
+                      {loggedIn ? (
+                        <div>
+                          <p>{routine.name}</p>
+                          <p>{routine.goal}</p>
+                          <p>
+                            Public View: {routine.isPublic ? "True" : "False"}
+                          </p>
+                        </div>
+                      ) : (
+                        <p></p>
+                      )}
                       {routine.id && loggedIn ? (
                         <div>
                           <button
@@ -93,12 +99,11 @@ const Dashboard = ({ routines, setRoutines, loggedIn }) => {
                 })
               ) : (
                 <div></div>
-            
               )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

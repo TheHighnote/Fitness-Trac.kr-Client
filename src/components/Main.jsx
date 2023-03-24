@@ -37,19 +37,27 @@ const Main = () => {
     setActivities(allActivities);
   };
   async function getMe() {
+    //only want getMe to run if token is present
+    const token = localStorage.getItem("token");
     try {
-      const response = await fetchMe();
-      console.log(response);
-      setUsers(response);
+      if (token) {
+        const response = await fetchMe(token);
+        setUsers(response);
+      } else {
+        setUsers({});
+      }
     } catch (err) {
       console.error(err);
     }
   }
-
+  useEffect(() => {
+    if (loggedIn) {
+      getMe();
+    }
+  }, [loggedIn]);
   useEffect(() => {
     retrieveRoutines();
     retrieveActivities();
-    getMe();
   }, []);
   console.log(users);
   return (
