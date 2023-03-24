@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { deleteRoutines, fetchMe, getRoutinesForUser } from "../API-Adapter";
+import { Link } from "react-router-dom";
 import DashButtons from "./DashButtons";
 
 const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
@@ -71,6 +72,7 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
                           >
                             DELETE
                           </button>
+                          <Link to={`${routine.id}/editroutine`}><button>Edit</button></Link>
                         </div>
                       ) : null}
                     </div>

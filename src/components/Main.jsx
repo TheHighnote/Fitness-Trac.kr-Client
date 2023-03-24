@@ -159,7 +159,7 @@ const Main = () => {
               }
             />
             <Route
-              path="/editroutine"
+              path="/:routineId/editroutine"
               element={
                 <EditRoutine
                   routines={routines}

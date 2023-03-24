@@ -187,6 +187,8 @@ export const createRoutine = async (name, goal, isPublic) => {
 };
 
 export const updateRoutines = async (name, goal, id) => {
+  console.log(name, goal, id, "jlnfsjlh")
+  console.log(localStorage.getItem("token"))
   try {
     const response = await fetch(`${URL}/routines/${id}`, {
       method: "PATCH",
@@ -200,7 +202,7 @@ export const updateRoutines = async (name, goal, id) => {
       }),
     });
     const result = await response.json();
-    console.log(result);
+    console.log("Update Routines result", result);
     return result;
   } catch (err) {
     console.error(err);

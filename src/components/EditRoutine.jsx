@@ -1,19 +1,26 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { updateRoutines } from "../API-Adapter";
 
 const EditRoutine = (props) => {
+console.log(props, "EDIT ROUTINE PROPS")
   const [updatedName, setUpdatedName] = useState("");
   const [updatedGoal, setUpdatedGoal] = useState("");
+  const routines = props.routines;
+  const routineToken = localStorage.getItem("token");
+  console.log("ROUTINE TOKEN",routineToken)
   const navigate = useNavigate();
+  const {routineId} = useParams();
 
   const loggedIn = props.loggedIn;
   const currentUser = localStorage.getItem("currentUser");
 
   const handleClick = async (event) => {
+    console.log("testing string")
     if (loggedIn && currentUser) {
       event.preventDefault();
-      const result = await updateRoutines(updatedName, updatedGoal);
+      const result = await updateRoutines(updatedName, updatedGoal, routineId, routineToken);
+      console.log(result, "RESULT")
       const updatedRoutinesCopy = [...routines];
       updatedRoutinesCopy.push(result);
       navigate("/");
@@ -56,7 +63,7 @@ const EditRoutine = (props) => {
             </label>
           </div>
           <div>
-            <button className="submitBtn" type="submit">
+            <button onSubmit={handleClick} className="submitBtn" type="submit">
               SAVE
             </button>
           </div>
