@@ -12,6 +12,7 @@ import {
   ActivityList,
   CreateActivity,
   EditRoutine,
+  RoutineActivities,
 } from "./";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
@@ -176,6 +177,22 @@ const Main = () => {
               path="/createactivity"
               element={
                 <CreateActivity
+                  activities={activities}
+                  setActivities={setActivities}
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                  loggedIn={loggedIn}
+                  users={users}
+                  setUsers={setUsers}
+                />
+              }
+            />
+            <Route
+              path="/routineactivities"
+              element={
+                <RoutineActivities
+                  routines={routines}
+                  setRoutines={setRoutines}
                   activities={activities}
                   setActivities={setActivities}
                   currentUser={currentUser}

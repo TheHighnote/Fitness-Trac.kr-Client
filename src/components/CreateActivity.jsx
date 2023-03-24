@@ -21,7 +21,7 @@ const CreateActivity = (props) => {
       setActivities(activitiesCopy);
       navigate("/activitylist");
     } else {
-      alert("NEED TO BE LOGGED IN");
+      alert("MUST BE LOGGED IN TO PERFORM THIS ACTION");
     }
   };
 
