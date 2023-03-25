@@ -10,6 +10,7 @@ const ActivityList = ({ activities, setActivities }) => {
             <div id="activity-view" key={activity.id}>
               <h2>{activity.name}</h2>
               <li>{activity.description}</li>
+              <li>{activity.id}</li>
             </div>
           );
         })

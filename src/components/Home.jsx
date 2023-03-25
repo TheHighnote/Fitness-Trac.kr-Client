@@ -4,6 +4,7 @@ import { getRoutinesForUser } from "../API-Adapter";
 
 
 const Home = ({
+  activities,
   routines,
   setRoutines,
   currentUser,
@@ -23,6 +24,7 @@ const Home = ({
                 <h2>{routine.name}</h2>
                 <p>{routine.goal}</p>
                 <p>@{routine.creatorName}</p>
+                <p>@{routine.id}</p>
               </div>
             );
           })
@@ -37,6 +39,7 @@ const Home = ({
         loggedIn={loggedIn}
         users={users}
         setUsers={setUsers}
+        activities={activities}
       />
       <DashButtons />
     </div>

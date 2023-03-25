@@ -3,7 +3,7 @@ import { deleteRoutines, fetchMe, getRoutinesForUser } from "../API-Adapter";
 import { Link } from "react-router-dom";
 import DashButtons from "./DashButtons";
 
-const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
+const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
   // const [users, setUsers] = useState({});
   const [userRoutine, setUserRoutine] = useState([]);
 
@@ -58,6 +58,18 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users }) => {
                           <p>
                             Public View: {routine.isPublic ? "True" : "False"}
                           </p>
+                          <select>
+
+                            {
+                              activities && activities.length ? 
+                              activities.map((e, idx) => {
+                                return (
+                                  <option value={e.id}>{e.name}</option>
+                                )
+                              })
+                              : null
+                            }
+                          </select>
                         </div>
                       ) : (
                         <p></p>

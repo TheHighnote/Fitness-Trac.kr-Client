@@ -77,6 +77,7 @@ const Main = () => {
                   loggedIn={loggedIn}
                   users={users}
                   setUsers={setUsers}
+                  activities={activities}
                 />
               }
             />
