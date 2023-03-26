@@ -30,7 +30,7 @@ const CreateActivity = (props) => {
       <div id="newActivityFormFull">
         <form onSubmit={handleClick}>
           <div className="newPostLabelText">
-            <h3>CREATE A NEW ACTIVITY</h3>
+            <h3>CREATE AN ACTIVITY</h3>
             <label>
               <p>Name:</p>
               <input
@@ -59,7 +59,7 @@ const CreateActivity = (props) => {
             </label>
           </div>
           <div>
-            <button className="submitBtn" type="submit">
+            <button className="submitBtn2" type="submit">
               POST
             </button>
           </div>

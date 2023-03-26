@@ -206,6 +206,25 @@ body {
 .submitBtn:active {
   color: rgb(181, 179, 179);
 }
+.submitBtn2 {
+  background-color: rgb(44, 44, 44);
+  color: rgb(181, 179, 179);
+  margin-top: 75px;
+  border: none;
+  height: 30px;
+  text-transform: uppercase;
+  font-size: large;
+  cursor: pointer;
+}
+.submitBtn2:hover {
+  color: aqua;
+  background-color: rgb(44, 44, 44);
+  border-bottom: 2px solid aqua;
+  transition: 0.5s;
+}
+.submitBtn2:active {
+  color: rgb(181, 179, 179);
+}
 .registerLink {
   color: rgb(181, 179, 179);
   text-decoration: none;
@@ -376,7 +395,7 @@ body {
 .newPostInput {
   display: flex;
   color: aqua;
-  width: 100%;
+  width: 97%;
   height: 30px;
   border-radius: 5px;
   background-color: rgb(35, 35, 35);
@@ -390,4 +409,8 @@ body {
 .light-mode {
     background-color: #f3f3f3;
     color: black;
+  }
+
+  #log-link{
+    margin-bottom: 10px;
   }

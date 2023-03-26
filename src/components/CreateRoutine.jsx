@@ -26,7 +26,7 @@ const CreateRoutine = (props) => {
       <div id="newRoutineFormFull">
         <form onSubmit={handleClick}>
           <div className="newPostLabelText">
-            <h3>CREATE A NEW ROUTINE</h3>
+            <h3>CREATE A ROUTINE</h3>
             <label>
               <p>Name:</p>
               <input

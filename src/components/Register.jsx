@@ -1,5 +1,4 @@
-import { React, useState, useEffect } from "react";
-import { ReactDOM } from "react-dom";
+import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../API-Adapter";
 
@@ -70,9 +69,11 @@ function Register() {
             Submit
           </button>
           <br></br>
+          <div id="log-link">
           <Link to="/login" className="registerLink">
             Already have an account? Login here!
           </Link>
+          </div>
           <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
         </form>
       </div>

@@ -76,6 +76,9 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
                       )}
                       {routine.id && loggedIn ? (
                         <div>
+                          <Link to={`${routine.id}/editroutine`}>
+                            <button>EDIT</button>
+                          </Link>
                           <button
                             className="deleteBtn"
                             onClick={() => {
@@ -84,11 +87,8 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
                           >
                             DELETE
                           </button>
-                          <Link to={`${routine.id}/editroutine`}>
-                            <button>Edit</button>
-                          </Link>
                           <Link to="/routineactivities">
-                            <button>activities</button>
+                            <button>ACTIVITIES</button>
                           </Link>
                         </div>
                       ) : null}

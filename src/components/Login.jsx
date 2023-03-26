@@ -58,6 +58,7 @@ function Login({ loggedIn, setLoggedIn }) {
           </Link>
           <img id="logoDash" src="/Untitled_Artwork 29.png" alt="" />
         </form>
+        
       </div>
     </div>
   );
