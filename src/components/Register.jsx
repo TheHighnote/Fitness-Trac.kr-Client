@@ -5,24 +5,27 @@ import { registerUser } from "../API-Adapter";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [user, setUser] = useState("");
 
   const navigate = useNavigate();
 
   const registerNewUser = async (username, password) => {
     if (!username || !password) {
-      console.log("All fields are required");
+      alert("ALL FIELDS ARE REQUIRED");
       return;
     }
-
+    if (password.length < 8 ){
+      alert("PASSWORD MUST BE 8 CHARACTERS OR MORE")
+      return null;
+    }
     try {
       const result = await registerUser(username, password);
       localStorage.setItem("token", result.token);
       setUsername(username);
       setPassword(password);
       setUser(username);
-
+      setConfirmPassword(confirmPassword);
       navigate("/login");
     } catch (error) {
       console.log(error);
@@ -37,7 +40,7 @@ function Register() {
           className="registrationForm"
           onSubmit={(e) => {
             e.preventDefault();
-            registerNewUser(username, password);
+            registerNewUser(username, password, confirmPassword);
           }}
         >
           <p>Username:</p>
@@ -62,12 +65,13 @@ function Register() {
             className="passwordInput"
             type="password"
             placeholder="Confirm Password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
 
           <br></br>
-          <button className="submitBtn" type="submit">
+          {confirmPassword === password ? <button className="submitBtn" type="submit">
             Submit
-          </button>
+          </button>:" "}
           <br></br>
           <div id="log-link">
           <Link to="/login" className="registerLink">

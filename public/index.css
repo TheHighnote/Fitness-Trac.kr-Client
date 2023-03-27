@@ -135,6 +135,7 @@ body {
   width: 100%;
   margin-bottom: 20px;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   position: relative;
   top: 5px;
@@ -414,3 +415,4 @@ body {
   #log-link{
     margin-bottom: 10px;
   }
+  

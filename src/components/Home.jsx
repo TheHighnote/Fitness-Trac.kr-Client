@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Dashboard, DashButtons } from "./";
-import { getRoutinesForUser } from "../API-Adapter";
-
+import { Link } from "react-router-dom";
 
 const Home = ({
   activities,
@@ -20,12 +19,12 @@ const Home = ({
         {routines.length ? (
           routines.map((routine) => {
             return (
-              <div id="routine-view" key={routine.id}>
+              <Link to="/activitylist" id="routine-view" key={routine.id}>
                 <h2>{routine.name}</h2>
                 <p>{routine.goal}</p>
                 <p>@{routine.creatorName}</p>
-                <p>@{routine.id}</p>
-              </div>
+                <p>Post #{routine.id}</p>
+              </Link>
             );
           })
         ) : (

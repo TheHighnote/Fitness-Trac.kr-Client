@@ -23,6 +23,7 @@ function Login({ loggedIn, setLoggedIn }) {
       navigate("/");
     } else {
       console.log(result.error);
+      alert("USERNAME OR PASSWORD INCORRECT");
     }
   };
 

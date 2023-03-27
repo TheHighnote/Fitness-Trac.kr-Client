@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import DashButtons from "./DashButtons";
 
 const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
-  // const [users, setUsers] = useState({});
   const [userRoutine, setUserRoutine] = useState([]);
 
   async function routineForUser() {
@@ -58,7 +57,7 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
                           <p>
                             Public View: {routine.isPublic ? "True" : "False"}
                           </p>
-                          <select>
+                          <select className="submitBtn">
 
                             {
                               activities && activities.length ? 
@@ -77,10 +76,10 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
                       {routine.id && loggedIn ? (
                         <div>
                           <Link to={`${routine.id}/editroutine`}>
-                            <button>EDIT</button>
+                            <button className="submitBtn">EDIT</button>
                           </Link>
                           <button
-                            className="deleteBtn"
+                            className="submitBtn"
                             onClick={() => {
                               handleClickDelete(routine.id);
                             }}
@@ -88,7 +87,7 @@ const Dashboard = ({ routines, setRoutines, loggedIn, users, activities }) => {
                             DELETE
                           </button>
                           <Link to="/routineactivities">
-                            <button>ACTIVITIES</button>
+                            <button className="submitBtn">ACTIVITIES</button>
                           </Link>
                         </div>
                       ) : null}

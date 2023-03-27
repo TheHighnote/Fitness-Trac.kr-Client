@@ -8,17 +8,23 @@ const CreateRoutine = (props) => {
   const [newGoal, setNewGoal] = useState("");
   const [isPublic, setIsPublic] = useState(false);
   const navigate = useNavigate();
+  const loggedIn = props.loggedIn;
+  const currentUser = localStorage.getItem("currentUser");
 
   const routines = props.routines;
   const setRoutines = props.setRoutines;
 
   const handleClick = async (event) => {
+    if (loggedIn && currentUser) {
     event.preventDefault();
     const result = await createRoutine(newName, newGoal, isPublic);
     const routinesCopy = [...routines];
     routinesCopy.push(result);
     setRoutines(routinesCopy);
     navigate("/");
+    }else{
+      alert("MUST BE LOGGED IN TO PERFORM THIS ACTION");
+    }
   };
 
   return (
